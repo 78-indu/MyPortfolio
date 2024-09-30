@@ -1,125 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Final Year Portfolio</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <style>
-        body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
-        body, html {height: 100%; line-height: 1.8;}
-        .bgimg-1 {background-position: center; background-size: cover; background-image: url('https://www.w3schools.com/w3images/lights.jpg'); min-height: 100%;}
-        .w3-bar .w3-button {padding: 16px;}
-        .profile-pic {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-top: 20px;
-        }
-        .w3-col {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    /* General Styling */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      scroll-behavior: smooth;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    /* Navigation Styling */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #333;
+      padding: 15px;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style-type: none;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+    }
+
+    nav ul li a:hover {
+      background-color: #ff9800;
+      border-radius: 5px;
+    }
+
+    /* Section Styling */
+    .section {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px 0;
+      margin-top: 60px; /* Ensures spacing after navbar */
+    }
+
+    #home {
+      background-color: #3498db;
+      color: white;
+    }
+
+    #home h1 {
+      font-size: 2.5em;
+    }
+
+    #home p {
+      font-size: 1.2em;
+    }
+
+    #resume, #projects, #contact {
+      background-color: white;
+      padding: 50px 0;
+    }
+
+    /* Resume Content Styling */
+    .resume-content {
+      text-align: left;
+      width: 60%;
+      margin: auto;
+      line-height: 1.8;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .resume-section {
+      margin-bottom: 20px;
+    }
+
+    .resume-section h3 {
+      color: #2c3e50;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 5px;
+    }
+
+    /* Project Section Styling */
+    .project-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .project {
+      width: 45%;
+      margin: 20px 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .project:hover {
+      background-color: #ff9800;
+      transform: translateY(-10px);
+    }
+
+    .project h3 {
+      color: #333;
+    }
+
+    /* Form Styling */
+    form input, form textarea {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    form button {
+      padding: 15px 25px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #ff9800;
+    }
+
+    /* Footer Styling */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: white;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* Responsive Styling */
+    @media (max-width: 768px) {
+      .resume-content {
+        width: 90%;
+      }
+
+      .project {
+        width: 90%;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar w3-black w3-card">
-    <a href="#home" class="w3-bar-item w3-button w3-wide">MY PORTFOLIO</a>
-    <!-- Right-sided navbar links -->
-    <div class="w3-right w3-hide-small">
-      <a href="#portfolio" class="w3-bar-item w3-button">HOME</a>
-      <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
-      <a href="#contact" class="w3-bar-item w3-button">CONTACT</a>
+  <!-- Home Section -->
+  <section id="home" class="section">
+    <div class="content">
+      <h1>Welcome to My Portfolio</h1>
+      <p>   Here you see about my skills and projects.</p>
     </div>
-  </div>
-</div>
+  </section>
 
-<!-- Header with full-height image -->
-<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-  <div class="w3-display-middle w3-center">
-    <img src="https://as1.ftcdn.net/v2/jpg/06/17/13/26/1000_F_617132669_YptvM7fIuczaUbYYpMe3VTLimwZwzlWf.webp" alt="Profile Photo" class="profile-pic">
-    <span class="w3-text-white w3-hide-small" style="font-size:50px">PANNARASU INDU</span>
-    <p><a href="PANNARASUINDU_resume.pdf" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">View Resume</a></p>
-    <p>
-        <a href="https://github.com/78-indu/Time-Scheduling-for-students.git" class="w3-button w3-white w3-margin-top w3-opacity w3-hover-opacity-off" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/pannarasu-indu-3075712b0" class="w3-button w3-white w3-margin-top w3-opacity w3-hover-opacity-off" target="_blank">LinkedIn</a>
-    </p>
-  </div>
-</header>
+  <!-- Resume Section -->
+  <section id="resume" class="section">
+    <div class="content resume-content">
+      <h2>My Resume</h2>
 
-<!-- Portfolio Section -->
-<div class="w3-container" style="padding:128px 16px" id="portfolio">
-  <h3 class="w3-center">MY PROJECT</h3>
-  <p class="w3-center w3-large">Here is a project I’ve worked on</p>
+      <div class="resume-section">
+        <h3>Personal Details</h3>
+        <p><strong>Name:</strong> Pannarasu Indu</p>
+        <p><strong>Email:</strong> pannarasuindu@gmail.com</p>
+        <p><strong>Mobile:</strong> 7842545965</p>
+        <p><strong>Date of Birth:</strong> 4th May 2004</p>
+        <p><strong>Nationality:</strong> Indian</p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/pannarasu-indu-3075712b0" target="_blank">Pannarasu Indu</a></p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/78-indu" target="_blank">github</a></p>
 
-  <div class="w3-row-padding" style="margin-top:64px">
-    <div class="w3-col l12 m12">
-      <img src="https://www.w3schools.com/w3images/mountains.jpg" style="width:50%" onclick="onClick(this)" class="w3-hover-opacity" alt="Project">
-      <p class="w3-center"><a href="https://github.com/78-indu/Time-Scheduling-for-students.git" class="w3-button w3-black w3-margin-top">View Project</a></p>
-    </div>
-  </div>
-</div>
+      </div>
 
-<!-- About Section -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px" id="about">
-  <h3 class="w3-center">ABOUT ME</h3>
-  <p class="w3-center w3-large">A brief introduction about myself and my goals</p>
-  <div class="w3-row-padding w3-center" style="margin-top:64px">
-    <div class="w3-quarter">
-      <i class="w3-margin-bottom w3-jumbo w3-text-teal"></i>
-      <p class="w3-large">Education</p>
-      <p>Rajeev Gandhi Memorial College of Engineering and Technology</p>
-      <p>B.TECH in the stream of Computer Science and Engineering</p>
-      <p>Percentage: 7.5</p>
-    </div>
-    <div class="w3-quarter">
-      <i class="w3-margin-bottom w3-jumbo w3-text-red"></i>
-      <p class="w3-large">Skills</p>
-      <p>Programming</p>
-      <p>HTML</p>
-      <p>CSS</p>
-      <p>Java</p>
-      <p>C++</p>
-      <p>Web Development</p>
-    </div>
-    <div class="w3-quarter">
-      <i class="w3-margin-bottom w3-jumbo w3-text-blue"></i>
-      <p class="w3-large">Experience</p>
-      <p>Internships</p>
-      <p>Projects</p>
-    </div>
-    <div class="w3-quarter">
-      <i class="w3-margin-bottom w3-jumbo w3-text-yellow"></i>
-      <p class="w3-large">Hobbies</p>
-      <p>Exploring new things</p>
-      <p>Painting</p>
-      <p>Video making</p>
-    </div>
-  </div>
-</div>
+      <div class="resume-section">
+        <h3>Objective</h3>
+        <p>To obtain a challenging position in the IT industry to demonstrate my technical skills and achieve my goals while advancing professionally.</p>
+      </div>
 
-<!-- Contact Section -->
-<div class="w3-container w3-black" style="padding:128px 16px" id="contact">
-  <h3 class="w3-center">CONTACT ME</h3>
-  <p class="w3-center w3-large">Feel free to reach out</p>
-  <div class="w3-row-padding" style="margin-top:64px">
-    <div class="w3-half">
-      <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+      <div class="resume-section">
+        <h3>Education</h3>
+        <table border="1" cellpadding="10" style="width:100%; text-align:left;">
+          <tr>
+            <th>Course</th>
+            <th>Institution</th>
+            <th>Marks</th>
+            <th>Year of Passing</th>
+          </tr>
+          <tr>
+            <td>B.Tech (CSE)</td>
+            <td>Rajeev Gandhi Memorial College of Engineering and Technology</td>
+            <td>75%</td>
+            <td>2025</td>
+          </tr>
+          <tr>
+            <td>Intermediate</td>
+            <td>Sri Sai Junior College</td>
+            <td>63%</td>
+            <td>2021</td>
+          </tr>
+          <tr>
+            <td>SSC (10th)</td>
+            <td>Z.P.H School</td>
+            <td>97%</td>
+            <td>2019</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="resume-section">
+        <h3>Technical Skills</h3>
+        <ul>
+          <li>Good knowledge of HTML and CSS</li>
+          <li>Good knowledge of Python</li>
+          <li>Basic knowledge of Java</li>
+          <li>Basic knowledge of SQL</li>
+          <li>Good communication skills</li>
+          <li>Problem-solving skills</li>
+          <li>Basic knowledge of C++</li>
+          <li>Basic knowledge of C programming</li>
+        </ul>
+      </div>
+
+      <div class="resume-section">
+        <h3>Core Strengths</h3>
+        <ul>
+          <li>Confidence</li>
+          <li>Flexibility</li>
+          <li>Teamwork</li>
+          <li>Quick learner</li>
+          <li>Time management</li>
+        </ul>
+      </div>
+
+      <div class="resume-section">
+        <h3>Languages</h3>
+        <ul>
+          <li>English</li>
+          <li>Telugu</li>
+          <li>Hindi</li>
+        </ul>
+      </div>
+
+      <div class="resume-section">
+        <h3>Achievements & Awards</h3>
+        <ul>
+          <li>HackerRank Certificate in CSS (Basic)</li>
+          <li>Infosys Certificate in Python (Basics)</li>
+          <li>Participation in Ripple-2K24 CONCURRENCE for paper presentation and technical quiz</li>
+          <li>Web design certificate from CS-Engineers Day-2K23</li>
+          <li>Course completion certificate from BYTES in C and Data Structures</li>
+          <li>Participation in Smart India Internal Campus Hackathon</li>
+          <li>Udemy certificate in Java</li>
+        </ul>
+      </div>
+
+      <div class="resume-section">
+        <h3>Mini Projects & Internships</h3>
+        <ul>
+          <li>AWS Data Engineering Short-Term Internship</li>
+        </ul>
+      </div>
+
+      <div class="resume-section">
+        <h3>Hobbies & Interests</h3>
+        <ul>
+          <li>Exploring new things</li>
+          <li>Video editing</li>
+          <li>Painting</li>
+        </ul>
+      </div>
+
+      <div class="resume-section">
+        <h3>Declaration</h3>
+        <p>I hereby declare that all the above-mentioned information is true to the best of my knowledge and will provide required documents upon request.</p>
+        <p><strong>Signature:</strong> Pannarasu Indu</p>
+      </div>
     </div>
-    <div class="w3-half">
-      <input class="w3-input w3-border" type="email" placeholder="Email" required name="Email">
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="content">
+      <h2>My Projects</h2>
+      <div class="project-list">
+        <div class="project">
+          <h3>Project 1</h3>
+          <p>Project description goes here.</p>
+        </div>
+        <div class="project">
+          <h3>Project 2</h3>
+          <p>Project description goes here.</p>
+        </div>
+        <!-- Add more projects -->
+      </div>
     </div>
-  </div>
-  <textarea class="w3-input w3-border" placeholder="Message" required name="Message" style="margin-top:16px"></textarea>
-  <button class="w3-button w3-black w3-section" type="submit">SEND MESSAGE</button>
-</div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="content">
+      <h2>Contact Me</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 My Portfolio</p>
+  </footer>
 
 </body>
 </html>
